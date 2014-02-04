@@ -41,7 +41,7 @@
             this.txtCarrera = new System.Windows.Forms.TextBox();
             this.txtFechaDeIngreso = new System.Windows.Forms.TextBox();
             this.txtSexo = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.txtNombres = new System.Windows.Forms.TextBox();
             this.txtApellidos = new System.Windows.Forms.TextBox();
             this.txtDNI = new System.Windows.Forms.TextBox();
@@ -168,12 +168,12 @@
             this.txtSexo.Size = new System.Drawing.Size(181, 20);
             this.txtSexo.TabIndex = 13;
             // 
-            // textBox6
+            // txtBuscar
             // 
-            this.textBox6.Location = new System.Drawing.Point(103, 23);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(449, 20);
-            this.textBox6.TabIndex = 14;
+            this.txtBuscar.Location = new System.Drawing.Point(103, 23);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(449, 20);
+            this.txtBuscar.TabIndex = 14;
             // 
             // txtNombres
             // 
@@ -238,6 +238,7 @@
             this.btnBuscar.TabIndex = 22;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // dgwBuscarAlumnos
             // 
@@ -273,14 +274,13 @@
             this.groupBox1.Size = new System.Drawing.Size(654, 236);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgwBuscarAlumnos);
             this.groupBox2.Controls.Add(this.btnBuscar);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.txtBuscar);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(654, 202);
@@ -320,7 +320,7 @@
         private System.Windows.Forms.TextBox txtCarrera;
         private System.Windows.Forms.TextBox txtFechaDeIngreso;
         private System.Windows.Forms.TextBox txtSexo;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.TextBox txtApellidos;
         private System.Windows.Forms.TextBox txtDNI;

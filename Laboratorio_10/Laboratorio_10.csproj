@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConexionBD.cs" />
+    <Compile Include="ConsultaBD.cs" />
     <Compile Include="EncriptadoyDesencriptado.cs">
       <SubType>Form</SubType>
     </Compile>

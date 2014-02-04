@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Laboratorio_10;
 
 namespace Laboratorio2
 {
@@ -16,9 +17,19 @@ namespace Laboratorio2
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
 
+            
+
+              ConsultaBD consultaralumnos = new ConsultaBD();
+
+
+              dgwBuscarAlumnos.DataSource = consultaralumnos.listarAlumnos("Data Source = localhost; Initial Catalog = BDAcademico; Integrated Security = True", txtBuscar.Text);
+     
+
         }
+
+        
     }
 }

@@ -27,5 +27,13 @@ namespace Laboratorio2
             hijo.MdiParent = this;
             hijo.Show(); 
         }
+
+        private void consultaDeAlumnosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            frm_ConsultaAlumnos   hijo = new frm_ConsultaAlumnos();
+            hijo.MdiParent = this;
+            hijo.Show(); 
+        }
     }
 }

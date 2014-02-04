@@ -69,6 +69,7 @@
             this.consultaDeAlumnosToolStripMenuItem.Name = "consultaDeAlumnosToolStripMenuItem";
             this.consultaDeAlumnosToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.consultaDeAlumnosToolStripMenuItem.Text = "Consulta de Alumnos";
+            this.consultaDeAlumnosToolStripMenuItem.Click += new System.EventHandler(this.consultaDeAlumnosToolStripMenuItem_Click);
             // 
             // mantenimientoDeUsuariosToolStripMenuItem
             // 
