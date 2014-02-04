@@ -78,5 +78,42 @@ namespace Laboratorio_10
 
         }
 
+
+        public bool ActualizarAlumno(string CadenaConexion, string Codigo, string Nombre, string Apellido, string DNI, string Fec_Nac, string Sexo, string Carrera, string Fec_Ingreso)
+        {
+
+            //Creo el nuevo objeto SQLconexion a la variable StrConexion.
+
+
+            try
+            {
+                Conexion = new SqlConnection(CadenaConexion);
+
+                string sql = "UPDATE TablaAlumnos SET  Nombre='"+Nombre+ "', Apellido='"+Apellido+ "', DNI='"+DNI+ "', Fec_Nac='"+Fec_Nac+ "', Sexo='"+Sexo+ "', Carrera='"+Carrera+ "', Fec_Ingreso='"+Fec_Ingreso+ "'"+ "WHERE Codigo='" + Codigo +"'";
+                
+                
+                SqlCommand cmd = new SqlCommand(sql, Conexion);
+
+                Conexion.Open();
+
+                cmd.BeginExecuteNonQuery();
+
+                return true;
+
+            }
+
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+
+
+
+
+            Conexion.Close();
+
+        }
+
     }
 }

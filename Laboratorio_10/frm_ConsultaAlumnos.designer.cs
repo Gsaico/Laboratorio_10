@@ -221,6 +221,7 @@
             this.btnActualizar.TabIndex = 20;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnInsertar
             // 

@@ -43,6 +43,19 @@ namespace Laboratorio2
             } 
         }
 
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            ConsultaBD ActualizarAlumno = new ConsultaBD();
+            if (ActualizarAlumno.ActualizarAlumno ("Data Source = localhost; Initial Catalog = BDAcademico; Integrated Security = True", txtCodigo.Text, txtNombres.Text, txtApellidos.Text, txtDNI.Text, txtFechaDeNacimiento.Text, txtSexo.Text, txtCarrera.Text, txtFechaDeIngreso.Text) == true)
+            {
+                MessageBox.Show("El actualizacion del nuevo alumno se realizo corectamente");
+            }
+            else
+            {
+                MessageBox.Show("Existe un error en la actualizacion");
+            } 
+        }
+
         
     }
 }
