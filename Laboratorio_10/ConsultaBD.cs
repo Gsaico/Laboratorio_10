@@ -114,6 +114,41 @@ namespace Laboratorio_10
             Conexion.Close();
 
         }
+        public bool EliminarAlumno(string CadenaConexion, string Codigo)
+        {
+
+            //Creo el nuevo objeto SQLconexion a la variable StrConexion.
+
+
+            try
+            {
+                Conexion = new SqlConnection(CadenaConexion);
+
+                string sql = "DELETE FROM TablaAlumnos WHERE Codigo = '" + Codigo +"'";
+
+
+                SqlCommand cmd = new SqlCommand(sql, Conexion);
+
+                Conexion.Open();
+
+                cmd.BeginExecuteNonQuery();
+
+                return true;
+
+            }
+
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+
+
+
+
+            Conexion.Close();
+
+        }
 
     }
 }

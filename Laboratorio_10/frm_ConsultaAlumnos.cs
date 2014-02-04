@@ -56,6 +56,19 @@ namespace Laboratorio2
             } 
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ConsultaBD EliminarAlumno = new ConsultaBD();
+            if (EliminarAlumno.EliminarAlumno ("Data Source = localhost; Initial Catalog = BDAcademico; Integrated Security = True", txtCodigo.Text) == true)
+            {
+                MessageBox.Show("El eliminacion de datos se realizo corectamente");
+            }
+            else
+            {
+                MessageBox.Show("Existe un error en la eliminacion de datos");
+            } 
+        }
+
         
     }
 }
