@@ -13,10 +13,10 @@ namespace Laboratorio2
     public class ConexionBD
     {
 
-        int intentos = 0;
-        private string StrConexion;
+      
+       
         private SqlConnection Conexion;
-        private SqlDataAdapter Adapter;
+   
         private DataSet miDataSet = new DataSet();
 
 

@@ -30,6 +30,19 @@ namespace Laboratorio2
 
         }
 
+        private void btnInsertar_Click(object sender, EventArgs e)
+        {
+            ConsultaBD InsertarNuevoAlumno = new ConsultaBD();
+            if (InsertarNuevoAlumno.InsertarAlumno("Data Source = localhost; Initial Catalog = BDAcademico; Integrated Security = True", txtCodigo.Text, txtNombres.Text, txtApellidos.Text, txtDNI.Text, txtFechaDeNacimiento.Text, txtSexo.Text, txtCarrera.Text, txtFechaDeIngreso.Text) == true)
+            {
+                MessageBox.Show("El insercion del nuevo alumno se realizo corectamente");
+            } 
+            else
+            {
+                MessageBox.Show("Existe un error en la insercion");
+            } 
+        }
+
         
     }
 }

@@ -143,6 +143,7 @@
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(103, 19);
+            this.txtCodigo.MaxLength = 6;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(181, 20);
             this.txtCodigo.TabIndex = 9;
@@ -229,6 +230,7 @@
             this.btnInsertar.TabIndex = 21;
             this.btnInsertar.Text = "Insertar";
             this.btnInsertar.UseVisualStyleBackColor = true;
+            this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
             // 
             // btnBuscar
             // 

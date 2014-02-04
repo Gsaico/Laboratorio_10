@@ -42,5 +42,41 @@ namespace Laboratorio_10
 
         }
 
+
+        public bool InsertarAlumno(string CadenaConexion, string Codigo, string Nombre,string  Apellido, string DNI,string  Fec_Nac, string Sexo, string Carrera, string Fec_Ingreso)
+        {
+
+            //Creo el nuevo objeto SQLconexion a la variable StrConexion.
+           
+
+        try
+        {            
+             Conexion = new SqlConnection(CadenaConexion);
+
+            string sql = "insert into TablaAlumnos(Codigo, Nombre, Apellido, DNI, Fec_Nac, Sexo, Carrera, Fec_Ingreso) values( '" + Codigo + "','" + Nombre + "','" + Apellido + "','" + DNI + "','" + Fec_Nac + "','" + Sexo + "','" + Carrera + "','" + Fec_Ingreso + "')";
+
+            SqlCommand cmd = new SqlCommand(sql, Conexion);
+
+            Conexion.Open();
+
+           cmd.BeginExecuteNonQuery();
+
+            return true;
+            
+        }
+
+        catch (Exception ex)
+        {
+            
+            return false;
+        }
+
+
+           
+
+            Conexion.Close();
+
+        }
+
     }
 }
