@@ -43,75 +43,92 @@ namespace Laboratorio_10
         }
 
 
-        public bool InsertarAlumno( string Codigo, string Nombre,string  Apellido, string DNI,string  Fec_Nac, string Sexo, string Carrera, string Fec_Ingreso)
+        public bool InsertarAlumno(string Codigo, string Nombre, string Apellido, string DNI, string Fec_Nac, string Sexo, string Carrera, string Fec_Ingreso, byte[] foto)
         {
 
             //Creo el nuevo objeto SQLconexion a la variable StrConexion.
            
 
-        try
-        {
+       
             Conexion = new SqlConnection("Data Source = localhost; Initial Catalog = BDAcademico; Integrated Security = True");
 
-            string sql = "insert into TablaAlumnos(Codigo, Nombre, Apellido, DNI, Fec_Nac, Sexo, Carrera, Fec_Ingreso) values( '" + Codigo + "','" + Nombre + "','" + Apellido + "','" + DNI + "','" + Fec_Nac + "','" + Sexo + "','" + Carrera + "','" + Fec_Ingreso + "')";
+            string sql = "insert into TablaAlumnos(Codigo, Nombre, Apellido, DNI, Fec_Nac, Sexo, Carrera, Fec_Ingreso, Foto) values( '" + Codigo + "','" + Nombre + "','" + Apellido + "','" + DNI + "','" + Fec_Nac + "','" + Sexo + "','" + Carrera + "','" + Fec_Ingreso + "', @Foto)";
 
             SqlCommand cmd = new SqlCommand(sql, Conexion);
 
-            Conexion.Open();
 
-           cmd.BeginExecuteNonQuery();
 
-            return true;
-            
+
+            cmd.Parameters.AddWithValue("@Foto", foto);
+            try
+            {
+                //Abrimos la conexion
+                Conexion.Open();
+                //Ejecutamos
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+
+                //Cerramos la conexion
+                Conexion.Close();
+            }
+
+
+
+
+
+
+
+
+
+
+
         }
 
-        catch (Exception ex)
-        {
-            
-            return false;
-        }
 
-
-           
-
-            Conexion.Close();
-
-        }
-
-
-        public bool ActualizarAlumno( string Codigo, string Nombre, string Apellido, string DNI, string Fec_Nac, string Sexo, string Carrera, string Fec_Ingreso)
+        public bool ActualizarAlumno(string Codigo, string Nombre, string Apellido, string DNI, string Fec_Nac, string Sexo, string Carrera, string Fec_Ingreso, byte[] fotoactualizar)
         {
 
             //Creo el nuevo objeto SQLconexion a la variable StrConexion.
 
 
-            try
-            {
+            
                 Conexion = new SqlConnection("Data Source = localhost; Initial Catalog = BDAcademico; Integrated Security = True");
 
-                string sql = "UPDATE TablaAlumnos SET  Nombre='"+Nombre+ "', Apellido='"+Apellido+ "', DNI='"+DNI+ "', Fec_Nac='"+Fec_Nac+ "', Sexo='"+Sexo+ "', Carrera='"+Carrera+ "', Fec_Ingreso='"+Fec_Ingreso+ "'"+ "WHERE Codigo='" + Codigo +"'";
+                string sql = "UPDATE TablaAlumnos SET  Nombre='"+Nombre+ "', Apellido='"+Apellido+ "', DNI='"+DNI+ "', Fec_Nac='"+Fec_Nac+ "', Sexo='"+Sexo+ "', Carrera='"+Carrera+ "', Fec_Ingreso='"+Fec_Ingreso+ "', Foto = @Foto WHERE Codigo='" + Codigo +"'";
                 
                 
                 SqlCommand cmd = new SqlCommand(sql, Conexion);
 
-                Conexion.Open();
+                cmd.Parameters.AddWithValue("@Foto", fotoactualizar);
+                try
+                {
+                    //Abrimos la conexion
+                    Conexion.Open();
+                    //Ejecutamos
+                    cmd.ExecuteNonQuery();
 
-                cmd.BeginExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+                finally
+                {
 
-                return true;
+                    //Cerramos la conexion
+                    Conexion.Close();
+                }
 
-            }
-
-            catch (Exception ex)
-            {
-
-                return false;
-            }
-
-
-
-
-            Conexion.Close();
+           
 
         }
         public bool EliminarAlumno( string Codigo)

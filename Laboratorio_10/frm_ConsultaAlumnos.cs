@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Laboratorio_10;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace Laboratorio2
 {
@@ -114,11 +116,28 @@ namespace Laboratorio2
 
 
         }
+
+
+       
+
         private void btnInsertar_Click(object sender, EventArgs e)
         {
             ConsultaBD InsertarNuevoAlumno = new ConsultaBD();
-            if (InsertarNuevoAlumno.InsertarAlumno( txtCodigo.Text, txtNombres.Text, txtApellidos.Text, txtDNI.Text, txtFechaDeNacimiento.Text, txtSexo.Text, txtCarrera.Text, txtFechaDeIngreso.Text) == true)
+
+            MemoryStream stream = new MemoryStream();
+
+            //Grabamos la imagen el objeto stream 
+            picFoto.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            //Esta parte es importante ya que convertimos la imagen a bytes
+            byte[] pic = stream.ToArray();
+
+
+            if (InsertarNuevoAlumno.InsertarAlumno( txtCodigo.Text, txtNombres.Text, txtApellidos.Text, txtDNI.Text, txtFechaDeNacimiento.Text, txtSexo.Text, txtCarrera.Text, txtFechaDeIngreso.Text,pic) == true)
             {
+
+
+
                 MessageBox.Show("El insercion del nuevo alumno se realizo corectamente");
             } 
             else
@@ -130,7 +149,18 @@ namespace Laboratorio2
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             ConsultaBD ActualizarAlumno = new ConsultaBD();
-            if (ActualizarAlumno.ActualizarAlumno ( txtCodigo.Text, txtNombres.Text, txtApellidos.Text, txtDNI.Text, txtFechaDeNacimiento.Text, txtSexo.Text, txtCarrera.Text, txtFechaDeIngreso.Text) == true)
+
+            MemoryStream streamactualizar = new MemoryStream();
+
+            //Grabamos la imagen el objeto stream 
+            picFoto.Image.Save(streamactualizar, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            //Esta parte es importante ya que convertimos la imagen a bytes
+            byte[] picactualizar = streamactualizar.ToArray();
+
+
+
+            if (ActualizarAlumno.ActualizarAlumno(txtCodigo.Text, txtNombres.Text, txtApellidos.Text, txtDNI.Text, txtFechaDeNacimiento.Text, txtSexo.Text, txtCarrera.Text, txtFechaDeIngreso.Text, picactualizar) == true)
             {
 
                 limpiargridview();

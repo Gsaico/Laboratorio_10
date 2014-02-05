@@ -20,6 +20,16 @@ namespace WindowsFormsApplication1
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
+            InsertarImagen();
+
+        }
+
+
+
+        private void InsertarImagen()
+
+        {
+
             //Inicializamos la cadena de conexion 
             SqlConnection con = new SqlConnection("Server=.;database=BDAcademico;integrated security=true");
 
@@ -54,7 +64,6 @@ namespace WindowsFormsApplication1
                 //Cerramos la conexion
                 con.Close();
             }
-
         }
 
         private void btnMostar_Click(object sender, EventArgs e)
@@ -90,6 +99,42 @@ namespace WindowsFormsApplication1
             MemoryStream stream = new MemoryStream(MyData);
             picMostrar.Image = Image.FromStream(stream);
 
+        }
+
+
+
+        private void MostrarImagen()
+        {
+         //Inicializamos la cadena de conexion 
+            SqlConnection connect = new SqlConnection ("Server=.;database=BDAcademico;integrated security=true");
+            
+            
+            //Ingresamos la query con la conexion a SqlCommand
+             SqlCommand command = new SqlCommand ("select Foto from TablaUsuarios where Codigo=2", connect);
+
+
+             //declaro un nuevo objeto SqlDataAdapter con la la     QUERY Y LA CONEXION
+            SqlDataAdapter dp = new SqlDataAdapter(command);
+
+            //declaro un nuevo objeto  DataSet  con el nombre de memoria "MyImages"
+            DataSet ds = new DataSet("MyImages");
+
+
+            //declaro un nuevo objeto byte tipo array unidimensional
+            byte[] MyData = new byte[0];
+
+
+            //lleno mi dataset "MyImages" mediante el SqlDataAdapter
+            dp.Fill(ds, "MyImages");
+
+            DataRow myRow;
+
+            myRow = ds.Tables["MyImages"].Rows[0];
+
+            MyData = (byte[])myRow["Foto"];
+
+            MemoryStream stream = new MemoryStream(MyData);
+            picMostrar.Image = Image.FromStream(stream);
         }
 
         private void button1_Click(object sender, EventArgs e)

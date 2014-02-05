@@ -296,7 +296,6 @@
             // 
             // btnExaminar
             // 
-            this.btnExaminar.Enabled = false;
             this.btnExaminar.Location = new System.Drawing.Point(496, 196);
             this.btnExaminar.Name = "btnExaminar";
             this.btnExaminar.Size = new System.Drawing.Size(145, 23);
