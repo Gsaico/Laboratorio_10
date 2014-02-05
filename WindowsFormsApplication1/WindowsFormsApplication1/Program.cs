@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Laboratorio2
+namespace WindowsFormsApplication1
 {
     static class Program
     {
@@ -15,7 +15,7 @@ namespace Laboratorio2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_ConsultaAlumnos());
+            Application.Run(new Form1());
         }
     }
 }

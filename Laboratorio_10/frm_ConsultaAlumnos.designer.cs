@@ -52,9 +52,12 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgwBuscarAlumnos = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnExaminar = new System.Windows.Forms.Button();
+            this.picFoto = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgwBuscarAlumnos)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -151,6 +154,7 @@
             // txtCarrera
             // 
             this.txtCarrera.Location = new System.Drawing.Point(103, 175);
+            this.txtCarrera.MaxLength = 50;
             this.txtCarrera.Name = "txtCarrera";
             this.txtCarrera.Size = new System.Drawing.Size(181, 20);
             this.txtCarrera.TabIndex = 10;
@@ -158,6 +162,7 @@
             // txtFechaDeIngreso
             // 
             this.txtFechaDeIngreso.Location = new System.Drawing.Point(103, 201);
+            this.txtFechaDeIngreso.MaxLength = 10;
             this.txtFechaDeIngreso.Name = "txtFechaDeIngreso";
             this.txtFechaDeIngreso.Size = new System.Drawing.Size(181, 20);
             this.txtFechaDeIngreso.TabIndex = 11;
@@ -165,6 +170,7 @@
             // txtSexo
             // 
             this.txtSexo.Location = new System.Drawing.Point(103, 149);
+            this.txtSexo.MaxLength = 1;
             this.txtSexo.Name = "txtSexo";
             this.txtSexo.Size = new System.Drawing.Size(181, 20);
             this.txtSexo.TabIndex = 13;
@@ -179,6 +185,7 @@
             // txtNombres
             // 
             this.txtNombres.Location = new System.Drawing.Point(103, 45);
+            this.txtNombres.MaxLength = 20;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(181, 20);
             this.txtNombres.TabIndex = 15;
@@ -186,6 +193,7 @@
             // txtApellidos
             // 
             this.txtApellidos.Location = new System.Drawing.Point(103, 71);
+            this.txtApellidos.MaxLength = 50;
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(181, 20);
             this.txtApellidos.TabIndex = 16;
@@ -193,6 +201,7 @@
             // txtDNI
             // 
             this.txtDNI.Location = new System.Drawing.Point(103, 97);
+            this.txtDNI.MaxLength = 8;
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(181, 20);
             this.txtDNI.TabIndex = 17;
@@ -200,12 +209,14 @@
             // txtFechaDeNacimiento
             // 
             this.txtFechaDeNacimiento.Location = new System.Drawing.Point(103, 123);
+            this.txtFechaDeNacimiento.MaxLength = 10;
             this.txtFechaDeNacimiento.Name = "txtFechaDeNacimiento";
             this.txtFechaDeNacimiento.Size = new System.Drawing.Size(181, 20);
             this.txtFechaDeNacimiento.TabIndex = 18;
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Enabled = false;
             this.btnEliminar.Location = new System.Drawing.Point(303, 73);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(113, 23);
@@ -216,6 +227,7 @@
             // 
             // btnActualizar
             // 
+            this.btnActualizar.Enabled = false;
             this.btnActualizar.Location = new System.Drawing.Point(303, 46);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(113, 23);
@@ -251,9 +263,12 @@
             this.dgwBuscarAlumnos.Name = "dgwBuscarAlumnos";
             this.dgwBuscarAlumnos.Size = new System.Drawing.Size(635, 138);
             this.dgwBuscarAlumnos.TabIndex = 23;
+            this.dgwBuscarAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwBuscarAlumnos_CellContentClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnExaminar);
+            this.groupBox1.Controls.Add(this.picFoto);
             this.groupBox1.Controls.Add(this.btnInsertar);
             this.groupBox1.Controls.Add(this.btnActualizar);
             this.groupBox1.Controls.Add(this.label9);
@@ -275,9 +290,29 @@
             this.groupBox1.Controls.Add(this.txtSexo);
             this.groupBox1.Location = new System.Drawing.Point(12, 220);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(654, 236);
+            this.groupBox1.Size = new System.Drawing.Size(660, 236);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
+            // 
+            // btnExaminar
+            // 
+            this.btnExaminar.Enabled = false;
+            this.btnExaminar.Location = new System.Drawing.Point(496, 196);
+            this.btnExaminar.Name = "btnExaminar";
+            this.btnExaminar.Size = new System.Drawing.Size(145, 23);
+            this.btnExaminar.TabIndex = 23;
+            this.btnExaminar.Text = "Seleccionar Imagen";
+            this.btnExaminar.UseVisualStyleBackColor = true;
+            this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
+            // 
+            // picFoto
+            // 
+            this.picFoto.Enabled = false;
+            this.picFoto.Location = new System.Drawing.Point(496, 15);
+            this.picFoto.Name = "picFoto";
+            this.picFoto.Size = new System.Drawing.Size(145, 173);
+            this.picFoto.TabIndex = 22;
+            this.picFoto.TabStop = false;
             // 
             // groupBox2
             // 
@@ -287,7 +322,7 @@
             this.groupBox2.Controls.Add(this.txtBuscar);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(654, 202);
+            this.groupBox2.Size = new System.Drawing.Size(660, 202);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
@@ -295,7 +330,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 467);
+            this.ClientSize = new System.Drawing.Size(690, 467);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_ConsultaAlumnos";
@@ -303,6 +338,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgwBuscarAlumnos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -336,5 +372,7 @@
         private System.Windows.Forms.DataGridView dgwBuscarAlumnos;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnExaminar;
+        private System.Windows.Forms.PictureBox picFoto;
     }
 }

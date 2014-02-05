@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{12BA1A82-B499-4056-B34A-8D325FA96EB1}</ProjectGuid>
+    <ProjectGuid>{B6E7CD1D-E09D-4236-88D9-54A4F9C1D027}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Laboratorio_10</RootNamespace>
-    <AssemblyName>Laboratorio_10</AssemblyName>
+    <RootNamespace>WindowsFormsApplication1</RootNamespace>
+    <AssemblyName>WindowsFormsApplication1</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -46,64 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CargarImagen.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CargarImagen.Designer.cs">
-      <DependentUpon>CargarImagen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Class1.cs" />
-    <Compile Include="ConexionBD.cs" />
-    <Compile Include="ConsultaBD.cs" />
-    <Compile Include="EncriptadoyDesencriptado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EncriptadoyDesencriptado.designer.cs">
-      <DependentUpon>EncriptadoyDesencriptado.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_ConsultaAlumnos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_ConsultaAlumnos.designer.cs">
-      <DependentUpon>frm_ConsultaAlumnos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_Login.designer.cs">
-      <DependentUpon>frm_Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_Mantenimiento_de_Usuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_Mantenimiento_de_Usuarios.designer.cs">
-      <DependentUpon>frm_Mantenimiento_de_Usuarios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_Principal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_Principal.designer.cs">
-      <DependentUpon>frm_Principal.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CargarImagen.resx">
-      <DependentUpon>CargarImagen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EncriptadoyDesencriptado.resx">
-      <DependentUpon>EncriptadoyDesencriptado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_ConsultaAlumnos.resx">
-      <DependentUpon>frm_ConsultaAlumnos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_Login.resx">
-      <DependentUpon>frm_Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_Mantenimiento_de_Usuarios.resx">
-      <DependentUpon>frm_Mantenimiento_de_Usuarios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_Principal.resx">
-      <DependentUpon>frm_Principal.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -123,6 +76,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo Antapaccay8 estirado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chrysanthemum.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

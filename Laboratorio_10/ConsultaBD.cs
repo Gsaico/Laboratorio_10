@@ -14,14 +14,14 @@ namespace Laboratorio_10
         private SqlConnection Conexion;
         private SqlDataAdapter Adapter;
     
+        
 
 
-
-        public DataTable listarAlumnos(string CadenaConexion, string CodigoAlumno)
+        public DataTable listarAlumnos( string CodigoAlumno)
         {
 
             //Creo el nuevo objeto SQLconexion a la variable Conexion.
-            Conexion = new SqlConnection(CadenaConexion);
+            Conexion = new SqlConnection("Data Source = localhost; Initial Catalog = BDAcademico; Integrated Security = True");
 
             string sqlquery = "select * from TablaAlumnos where Codigo='" + CodigoAlumno + "'";
 
@@ -43,15 +43,15 @@ namespace Laboratorio_10
         }
 
 
-        public bool InsertarAlumno(string CadenaConexion, string Codigo, string Nombre,string  Apellido, string DNI,string  Fec_Nac, string Sexo, string Carrera, string Fec_Ingreso)
+        public bool InsertarAlumno( string Codigo, string Nombre,string  Apellido, string DNI,string  Fec_Nac, string Sexo, string Carrera, string Fec_Ingreso)
         {
 
             //Creo el nuevo objeto SQLconexion a la variable StrConexion.
            
 
         try
-        {            
-             Conexion = new SqlConnection(CadenaConexion);
+        {
+            Conexion = new SqlConnection("Data Source = localhost; Initial Catalog = BDAcademico; Integrated Security = True");
 
             string sql = "insert into TablaAlumnos(Codigo, Nombre, Apellido, DNI, Fec_Nac, Sexo, Carrera, Fec_Ingreso) values( '" + Codigo + "','" + Nombre + "','" + Apellido + "','" + DNI + "','" + Fec_Nac + "','" + Sexo + "','" + Carrera + "','" + Fec_Ingreso + "')";
 
@@ -79,7 +79,7 @@ namespace Laboratorio_10
         }
 
 
-        public bool ActualizarAlumno(string CadenaConexion, string Codigo, string Nombre, string Apellido, string DNI, string Fec_Nac, string Sexo, string Carrera, string Fec_Ingreso)
+        public bool ActualizarAlumno( string Codigo, string Nombre, string Apellido, string DNI, string Fec_Nac, string Sexo, string Carrera, string Fec_Ingreso)
         {
 
             //Creo el nuevo objeto SQLconexion a la variable StrConexion.
@@ -87,7 +87,7 @@ namespace Laboratorio_10
 
             try
             {
-                Conexion = new SqlConnection(CadenaConexion);
+                Conexion = new SqlConnection("Data Source = localhost; Initial Catalog = BDAcademico; Integrated Security = True");
 
                 string sql = "UPDATE TablaAlumnos SET  Nombre='"+Nombre+ "', Apellido='"+Apellido+ "', DNI='"+DNI+ "', Fec_Nac='"+Fec_Nac+ "', Sexo='"+Sexo+ "', Carrera='"+Carrera+ "', Fec_Ingreso='"+Fec_Ingreso+ "'"+ "WHERE Codigo='" + Codigo +"'";
                 
@@ -114,7 +114,7 @@ namespace Laboratorio_10
             Conexion.Close();
 
         }
-        public bool EliminarAlumno(string CadenaConexion, string Codigo)
+        public bool EliminarAlumno( string Codigo)
         {
 
             //Creo el nuevo objeto SQLconexion a la variable StrConexion.
@@ -122,7 +122,7 @@ namespace Laboratorio_10
 
             try
             {
-                Conexion = new SqlConnection(CadenaConexion);
+                Conexion = new SqlConnection("Data Source = localhost; Initial Catalog = BDAcademico; Integrated Security = True");
 
                 string sql = "DELETE FROM TablaAlumnos WHERE Codigo = '" + Codigo +"'";
 
